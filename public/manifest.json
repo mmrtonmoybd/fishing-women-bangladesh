@@ -1,0 +1,28 @@
+{
+  "name": "Fishing women",
+  "short_name": "Fishing women",
+  "description": "Fishing women - Bangladesh.",
+  "start_url": "http://127.0.0.1:8000/",
+  "scope": "http://127.0.0.1:8000/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "theme_color": "#2a0071",
+  "background_color": "#ffffff",
+  "icons": [
+    {
+      "src": "http://127.0.0.1:8000/logo512.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "http://127.0.0.1:8000/logo192.png",
+      "sizes": "192x104",
+      "type": "image/png"
+    },
+    {
+      "src": "http://127.0.0.1:8000/logo512.jpg",
+      "sizes": "512x278",
+      "type": "image/png"
+    }
+  ]
+}
