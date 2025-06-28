@@ -36,6 +36,8 @@ Route::group(['prefix' => '/user', 'as' => 'user.'], function() {
     });
 });
 
+Route::get('sitemap.xml', [App\Http\Controllers\Frontend\SitemapController::class, 'index']);
+
 Route::get('test', function() {
     return Illuminate\Support\Facades\Hash::make('12345678');
 });

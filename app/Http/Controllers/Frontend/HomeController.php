@@ -27,7 +27,7 @@ class HomeController extends Controller
 
         return view('home.single', [
             'post' => $post,
-            'title' => $post->title.' - Post,',
+            'title' => $post->title,
         ]);
     }
 

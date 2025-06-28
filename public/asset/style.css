@@ -410,3 +410,24 @@ table{max-width:100%}
 .home_icons {
 	padding: 5px 0px;
 }
+
+/* Sidebar Footer */
+.sidebar-footer {
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    text-align: center;
+    font-size: 12px;
+    padding: 10px;
+    color: #fff;
+    border-top: 1px solid rgba(255,255,255,0.2);
+}
+
+.sidebar-footer a {
+    color: yellow;
+    text-decoration: none;
+}
+
+.sidebar-footer a:hover {
+    text-decoration: underline;
+}

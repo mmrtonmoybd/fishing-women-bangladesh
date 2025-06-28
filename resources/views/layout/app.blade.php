@@ -63,6 +63,10 @@
             @include('layout.sidebar')
         </ul>
 
+        <!-- Sidebar Footer -->
+        <div class="sidebar-footer">
+            <p>Developed by<br><a href="https://engineerbd.net/" target="_blank">Engineer BD Network</a></p>
+        </div>
     </nav>
    
    
@@ -125,9 +129,9 @@ border: none;">
                 <div class="col-3">
                    <a href="/"><img style="max-width: 54px !important;" src="{{ asset('/storage/' . getSettingValue('general.brand_logo')) }}" alt="" class="img-fluid"></a>
                 </div>
-                <div class="col-6  text-center" style="padding-left:0px">
-                    <p class="text-center">   {{ getSettingValue('general.brand_name') }} </p>
-                    <p class="text-center">Develop by - <a target="_blank" href="https://engineerbd.net/"> Engineer BD Network </a></p>
+                <div class="col-6 text-center justify-content-center" style="padding-left:0px">
+                    <p class="text-center">{{ getSettingValue('general.brand_name') }}</p>
+                    <p class="text-center">Organised by - <a target="_blank" href="https://www.report71.com/"> Report71 </a></p>
                 </div>
             </div>
         </div>
