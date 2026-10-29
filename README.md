@@ -1,85 +1,97 @@
-# 🚀 Glow Starter Kit
+# Fishing Women Bangladesh
 
-This is a **Filament v3 Starter Kit** for **Laravel 12**, designed to accelerate the development of Filament-powered applications.
+A Bangla-language community reporting platform where fishing women in Bangladesh, and the people who work with them, share stories, photos, videos, and audio from their communities. Organised by [Report71](https://www.report71.com/).
 
-Preview:
-![](https://raw.githubusercontent.com/ercogx/laravel-filament-starter-kit/main/preview-white.png)
-Dark Mode:
-![](https://raw.githubusercontent.com/ercogx/laravel-filament-starter-kit/main/preview.png)
+Built with Laravel 12, Filament 3, and Livewire 3.
 
-## 📦 Installation
+## Features
 
-You need the Laravel Installer if it is not yet installed.
+### Public website
 
-```bash
-composer global require laravel/installer
-```
+- Bangla interface with a homepage slider, post listings by category, and single post pages with social sharing
+- **Submit a post without an account:** guests add a name, title, category, content, and a photo, video, or audio file, or a YouTube link
+- **Member accounts:** register and log in with a mobile number. Bangla digits (০–৯) are converted automatically
+- **Member profile:** view, edit, and delete your own posts, and edit your profile
+- Markdown content with file uploads
+- Static pages, `sitemap.xml`, and SEO / Open Graph tags from the site settings
+- Installable as a Progressive Web App (PWA) with an offline page
 
-Now you can create a new project using the Laravel Filament Starter Kit.
+### Admin panel (`/admin`)
 
-```bash
-laravel new test-kit --using=ercogx/laravel-filament-starter-kit
-```
+- Manage posts, categories, pages, and homepage slides
+- **Pending posts** queue to review and publish submissions from guests and members
+- Separate lists for admins and registered members
+- **Settings** for brand name, logo, and SEO title and description
+- Roles and permissions (Filament Shield), profile management (Filament Breezy), and an activity log
+- Switchable admin themes and login backgrounds
 
-## ⚙️ Setup
+## Tech stack
 
-1️⃣ **Database Configuration**
+| Layer    | Packages                                                     |
+| -------- | ------------------------------------------------------------ |
+| Backend  | PHP 8.2+, Laravel 12                                         |
+| Admin UI | Filament 3, Filament Shield, Filament Breezy, Filament Settings |
+| Frontend | Blade, Livewire 3, Bootstrap, Swiper                         |
+| Tooling  | PHPUnit, Larastan, Pint, Debugbar, IDE Helper                |
 
-By default, this starter kit uses **SQLite**. If you’re okay with this, you can skip this step. If you prefer **MySQL**, follow these steps:
+## Getting started
 
-- Update your database credentials in `.env`
-- Run migrations: `php artisan migrate`
-- (Optional) delete the existing database file: ```rm database/database.sqlite```
+### Requirements
 
-2️⃣ Create Filament Admin User
-```bash
-php artisan make:filament-user
-```
+- PHP 8.2+
+- Composer
+- Node.js and npm
+- SQLite (default) or MySQL
 
-3️⃣ Assign Super Admin Role
-```bash
-php artisan shield:super-admin --user=1 --panel=admin
-```
-
-4️⃣ Generate Permissions
-```bash
-php artisan shield:generate --all --ignore-existing-policies --panel=admin
-```
-
-## 🌟Panel Include 
-
-- [Breezy](https://filamentphp.com/plugins/jeffgreco-breezy) My Profile page.
-- [Themes](https://filamentphp.com/plugins/hasnayeen-themes) Themes for Filament panels. Setup for `user` mode.
-- [Shield](https://filamentphp.com/plugins/bezhansalleh-shield) Access management to your Filament Panel's Resources, Pages & Widgets through spatie/laravel-permission.
-- [Settings](https://filamentphp.com/plugins/outerweb-settings) Integrates Outerweb/Settings into Filament.
-- [Backgrounds](https://filamentphp.com/plugins/swisnl-backgrounds) Beautiful backgrounds for Filament auth pages.
-- [Logger](https://filamentphp.com/plugins/z3d0x-logger) Extensible activity logger for filament that works out-of-the-box.
-
-## 🧑‍💻Development Include
-
-- [barryvdh/laravel-debugbar](https://github.com/barryvdh/laravel-debugbar) The most popular debugging tool for Laravel, providing detailed request and query insights.
-- [barryvdh/laravel-ide-helper](https://github.com/barryvdh/laravel-ide-helper) Generates helper files to improve autocompletion and static analysis in IDEs.
-- [larastan/larastan](https://github.com/larastan/larastan) A PHPStan extension for Laravel, configured at level 5 for robust static code analysis.
-
-This kit includes **Laravel Pint** for automatic PHP code styling and structured PHPDoc generation for your models.  
-After running migrations, execute the following command to update model documentation:
+### Installation
 
 ```bash
-php artisan ide-helper:models -W && ./vendor/bin/pint app 
+git clone https://github.com/mmrtonmoybd/fishing-women-bangladesh.git
+cd fishing-women-bangladesh
+
+composer install
+cp .env.example .env
+php artisan key:generate
+php artisan migrate --seed
+php artisan storage:link
+npm install && npm run build
 ```
 
-The `composer check` script runs **tests, PHPStan, and Pint** for code quality assurance:
+To use MySQL, set `DB_CONNECTION=mysql` and the `DB_*` values in `.env` before migrating.
+
+The seeder creates an admin account, `test@example.com`, with password `password`. Change it right away. To give it full permissions:
+
 ```bash
-composer check
+php artisan shield:super-admin
 ```
 
-## 📜 License
+Set the site name and logo under **Settings** in the admin panel. Update `start_url` and `scope` in `public/manifest.json` to your live domain for the PWA.
 
-This project is open-source and licensed under the MIT License.
+### Run locally
 
-## 💡 Contributing
+```bash
+composer dev
+```
 
-We welcome contributions! Feel free to open issues, submit PRs, or suggest improvements.
+Visit the site at `http://localhost:8000` and the admin panel at `http://localhost:8000/admin`.
 
+## Testing and code style
 
-### 🚀 Happy Coding with Laravel & Filament! 🎉
+```bash
+php artisan test     # test suite
+vendor/bin/pint      # fix PHP code style
+vendor/bin/phpstan   # static analysis
+```
+
+## Credits
+
+- Organised by [Report71](https://www.report71.com/)
+- Built on the [Laravel Filament Starter Kit](https://github.com/ercogx/laravel-filament-starter-kit) by ercogx
+
+## Author
+
+Moshiur Rahman — [rmedha037@gmail.com](mailto:rmedha037@gmail.com)
+
+## License
+
+Released under the [MIT License](LICENSE.md).
